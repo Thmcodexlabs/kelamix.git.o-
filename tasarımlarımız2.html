@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cosmic Series Slider</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.css">
+<style>
+@import url("https://fonts.cdnfonts.com/css/thegoodmonolith");
+*,
+*::after,
+*::before { box-sizing: border-box; }
+
+:root {
+  --color-text: #fff;
+  --color-bg: #000;
+  --thumb-width: 120px;
+  --line-spacing: 10px;
+  --line-base-height: 15px;
+  --line-max-height: 50px;
+}
+
+body {
+  margin:0;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  font-family: "TheGoodMonolith", sans-serif;
+  overflow: hidden;
+  height: 100vh;
+}
+
+.slides { width:100%; height:100vh; display:grid; place-items:center; overflow:hidden; }
+.slide { width:100%; height:100%; grid-area:1/1/-1/-1; pointer-events:none; opacity:0; overflow:hidden; position:relative; display:grid; place-items:center; }
+.slide--current { pointer-events:auto; opacity:1; }
+.slide__img { width:100%; height:100%; background-size:cover; background-position:left center; background-repeat:no-repeat; }
+
+.scroll-hint { position:fixed; top:2rem; right:2rem; color:#fff; z-index:100; font-size:1rem; }
+
+.bottom-ui-container { position:fixed; bottom:0; left:50%; transform:translateX(-50%); width:720px; max-width:100%; z-index:100; padding-bottom:2rem; display:flex; flex-direction:column; align-items:center; }
+.slide-section { color:#fff; font-size:1.8rem; font-weight:bold; text-align:center; opacity:0.9; letter-spacing:1px; margin-bottom:36px; }
+.slide-counter { display:flex; align-items:center; width:100%; justify-content:space-between; color:#fff; font-size:0.825rem; margin-bottom:24px; }
+.counter-display { display:flex; align-items:center; gap:10px; }
+.counter-nav { width:20px; cursor:pointer; opacity:0.7; transition:opacity 0.3s; }
+.counter-nav:hover { opacity:1; }
+.counter-divider { opacity:0.6; font-size:0.8rem; }
+.slide-title-container { width:100%; text-align:center; height:30px; overflow:hidden; margin-bottom:16px; position:relative; }
+.slide-title { position:absolute; width:100%; color:#fff; font-size:1.2rem; opacity:0.8; transition: transform 0.5s ease, opacity 0.5s ease; left:0; }
+.slide-title.exit-up { transform: translateY(-30px); opacity:0; }
+.slide-title.enter-up { transform: translateY(30px); opacity:0; }
+
+.drag-indicator { width:100%; height:50px; pointer-events:none; margin-bottom:8px; position:relative; }
+.lines-container { display:flex; height:100%; width:100%; position:relative; align-items:flex-end; justify-content:space-between; }
+.drag-line { width:2px; background-color: rgba(255,255,255,0.3); height: var(--line-base-height); transform-origin: bottom center; transition: height 0.6s cubic-bezier(0.25,0.1,0.25,1), background-color 0.6s cubic-bezier(0.25,0.1,0.25,1); }
+
+.thumbs-container { width:100%; background: rgba(0,0,0,0.5); overflow:hidden; }
+.slide-thumbs { display:flex; position:relative; background:transparent; padding:0; z-index:11; gap:0; }
+.slide-thumb { width:var(--thumb-width); height:80px; background-size:cover; background-position:left center; cursor:pointer; opacity:0.5; transition:opacity 0.3s; margin:0; }
+.slide-thumb:hover { opacity:0.8; }
+.slide-thumb.active { opacity:1; transform:none; }
+
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/Observer.min.js"></script>
+</head>
+<body>
+
+<div class="scroll-hint">scroll or drag</div>
+
+<div class="bottom-ui-container">
+  <div class="slide-section">COSMIC SERIES</div>
+  <div class="slide-counter">
+    <div class="counter-nav prev-slide">⟪</div>
+    <div class="counter-display">
+      <span class="current-slide">01</span>
+      <span class="counter-divider">//</span>
+      <span class="total-slides">06</span>
+    </div>
+    <div class="counter-nav next-slide">⟫</div>
+  </div>
+  <div class="slide-title-container">
+    <div class="slide-title">Cosmic Harmony</div>
+  </div>
+  <div class="drag-indicator"></div>
+  <div class="thumbs-container">
+    <div class="slide-thumbs"></div>
+  </div>
+</div>
+
+<div class="slides">
+  <div class="slide"><div class="slide__img" style="background-image:url(https://cdn.cosmos.so/1d4dbaff-8087-4451-a727-9d3266b573dd?format=jpeg)"></div></div>
+  <div class="slide"><div class="slide__img" style="background-image:url(https://cdn.cosmos.so/67ef01f5-09c8-4117-9199-04ec5323d64f?format=jpeg)"></div></div>
+  <div class="slide"><div class="slide__img" style="background-image:url(https://cdn.cosmos.so/77f73423-0eb7-4eaa-a782-036457985290?format=jpeg)"></div></div>
+  <div class="slide"><div class="slide__img" style="background-image:url(https://cdn.cosmos.so/3dd498a9-169d-4b69-8e2e-df042123c124?format=jpeg)"></div></div>
+  <div class="slide"><div class="slide__img" style="background-image:url(https://cdn.cosmos.so/ca346107-04c8-4241-85e6-f26c8b64c85c?format=jpeg)"></div></div>
+  <div class="slide"><div class="slide__img" style="background-image:url(https://cdn.cosmos.so/7d2c5113-b2d3-4f9d-8215-f46fbb679f31?format=jpeg)"></div></div>
+</div>
+
+<script>
+// Tek sayfa JS: slideshow, drag, thumbnails, title, counter
+class Slideshow {
+  constructor(slidesEl) {
+    this.DOM = { el: slidesEl, slides:[...slidesEl.querySelectorAll('.slide')], slidesInner:[] };
+    this.DOM.slidesInner = this.DOM.slides.map(s=>s.querySelector('.slide__img'));
+    this.current = 0;
+    this.total = this.DOM.slides.length;
+    this.isAnimating = false;
+    this.pendingNav = null;
+    this.slideTitles = ["Cosmic Harmony","Astral Journey","Ethereal Vision","Quantum Field","Celestial Path","Cosmic Whisper"];
+    this.init();
+  }
+  init() {
+    this.DOM.slides[this.current].classList.add('slide--current');
+    const thumbsContainer = document.querySelector('.slide-thumbs');
+    this.DOM.slides.forEach((s,i)=>{
+      const thumb = document.createElement('div');
+      thumb.className='slide-thumb';
+      thumb.style.backgroundImage = s.querySelector('.slide__img').style.backgroundImage;
+      if(i===0) thumb.classList.add('active');
+      thumb.addEventListener('click',()=>this.goTo(i));
+      thumbsContainer.appendChild(thumb);
+    });
+    document.querySelector('.total-slides').textContent=String(this.total).padStart(2,'0');
+    document.querySelector('.next-slide').addEventListener('click',()=>this.next());
+    document.querySelector('.prev-slide').addEventListener('click',()=>this.prev());
+    this.updateSlideTitle(0);
+    this.initDragLines();
+    this.initScrollDrag();
+    this.initKeys();
+  }
+  goTo(index) { if(this.isAnimating || index===this.current) return;
+    this.isAnimating=true;
+    const prev=this.current;
+    this.current=index;
+    const direction=index>prev?1:-1;
+    this.updateSlideCounter(index);
+    this.updateSlideTitle(index);
+    this.updateThumbs();
+    const currSlide=this.DOM.slides[prev], nextSlide=this.DOM.slides[index], currInner=this.DOM.slidesInner[prev], nextInner=this.DOM.slidesInner[index];
+    gsap.timeline({onComplete:()=>{currSlide.classList.remove('slide--current'); this.isAnimating=false;}}).addLabel('start',0)
+      .fromTo(nextSlide,{autoAlpha:1,scale:0.1,yPercent:direction===1?100:-100},{duration:0.7,ease:'expo',scale:0.4,yPercent:0},'start')
+      .fromTo(nextInner,{scaleY:4},{duration:0.7,ease:'expo',scaleY:1},'start')
+      .fromTo(currInner,{},{duration:0.7,ease:'expo'},{})
+      .to(nextSlide,{duration:1,scale:1,ease:'power4.inOut'},'start+=0.6')
+      .to(currSlide,{duration:1,scale:0.98,autoAlpha:0,ease:'power4.inOut'},'start+=0.6');
+  }
+  next(){let i=this.current+1>=this.total?0:this.current+1; this.goTo(i);}
+  prev(){let i=this.current-1<0?this.total-1:this.current-1; this.goTo(i);}
+  updateSlideCounter(i){document.querySelector('.current-slide').textContent=String(i+1).padStart(2,'0');}
+  updateSlideTitle(i){
+    const container=document.querySelector('.slide-title-container');
+    const old=container.querySelector('.slide-title');
+    const newTitle=document.createElement('div'); newTitle.className='slide-title enter-up'; newTitle.textContent=this.slideTitles[i];
+    container.appendChild(newTitle);
+    old.classList.add('exit-up'); setTimeout(()=>{newTitle.classList.remove('enter-up');},10);
+    setTimeout(()=>{old.remove();},500);
+  }
+  updateThumbs(){document.querySelectorAll('.slide-thumb').forEach((t,i)=>t.classList.toggle('active',i===this.current));}
+  initDragLines(){
+    const dragIndicator=document.querySelector('.drag-indicator'); dragIndicator.innerHTML='';
+    const linesContainer=document.createElement('div'); linesContainer.className='lines-container'; dragIndicator.appendChild(linesContainer);
+    for(let i=0;i<60;i++){const line=document.createElement('div'); line.className='drag-line'; linesContainer.appendChild(line);}
+  }
+  initScrollDrag(){
+    gsap.Observer.create({
+      type:'wheel,touch,pointer',
+      onDown:()=>this.prev(),
+      onUp:()=>this.next(),
+      wheelSpeed:-1, tolerance:10
+    });
+  }
+  initKeys(){document.addEventListener('keydown',e=>{if(e.key==='ArrowRight') this.next(); else if(e.key==='ArrowLeft') this.prev();});}
+}
+document.addEventListener('DOMContentLoaded',()=>{new Slideshow(document.querySelector('.slides'));});
+</script>
+</body>
+</html>
