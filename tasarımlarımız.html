@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scroll Slider Page</title>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; font-family:'Lexend', sans-serif; }
+  body { background:#000; color:#fff; overflow:hidden; }
+  .slideshow { position:relative; width:100%; height:100vh; }
+  .slide { position:absolute; width:100%; height:100%; top:0; left:0; visibility:hidden; }
+  .slide.active { visibility:visible; }
+  .slide__img { position:absolute; width:100%; height:100%; top:0; left:0; background-size:cover; background-position:center; transform:scale(1.1); transition: transform 1.2s ease; }
+  .slide__text { position:absolute; bottom:5rem; left:5rem; z-index:2; overflow:hidden; }
+  .slide__text-line { display:block; font-size:4rem; font-weight:700; text-transform:uppercase; transform:translateY(100%); opacity:0; transition: all 1s ease; }
+  .slide.active .slide__text-line { transform:translateY(0); opacity:1; }
+  .slide-counter { position:fixed; bottom:2rem; left:50%; transform:translateX(-50%); display:flex; align-items:center; font-weight:700; z-index:10; }
+  .counter-separator { width:40px; height:1px; background:#fff; margin:0 1rem; }
+  .counter-total { min-width:2rem; text-align:left; }
+  .slide-info { position:fixed; top:2rem; left:2rem; font-size:0.8rem; opacity:0.7; max-width:15rem; z-index:10; }
+  .cursor { position:fixed; width:60px; height:60px; border-radius:50%; border:1px solid rgba(255,255,255,0.3); pointer-events:none; transform:scale(0); transition: transform 0.3s ease; z-index:999; }
+  .cursor.active { transform:scale(1); }
+  .cursor-arrow { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:1.2rem; opacity:0; }
+  .cursor.prev .cursor-arrow.prev, .cursor.next .cursor-arrow.next { opacity:1; }
+
+  /* Tablet & Mobile */
+  @media (max-width:1024px) {
+    .slide__text { bottom:3rem; left:2rem; }
+    .slide__text-line { font-size:3rem; }
+    .slide-counter { bottom:1rem; }
+    .slide-info { top:1rem; left:1rem; font-size:0.7rem; max-width:12rem; }
+  }
+  @media (max-width:768px) {
+    .slide__text { bottom:2rem; left:1rem; }
+    .slide__text-line { font-size:2rem; }
+    .cursor { width:40px; height:40px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="slideshow">
+  <div class="slide active">
+    <div class="slide__img" style="background-image:url('img/kalemix-removebg-preview.png')"></div>
+    <div class="slide__text"><span class="slide__text-line">NE ZAMAN BİTİCEK KURUMSAL KİMLİKLEEER</span><span class="slide__text-line">NE ZAMAN BİTİCEK KURUMSAL KİMLİKLEEER</span></div>
+  </div>
+  <div class="slide">
+    <div class="slide__img" style="background-image:url('https://cdn.cosmos.so/7b3f4c48-ec63-4bac-b472-910c037a0eb4?format=jpeg')"></div>
+    <div class="slide__text"><span class="slide__text-line">NE ZAMAN BİTİCEK KURUMSAL KİMLİKLEEER</span><span class="slide__text-line">NE ZAMAN BİTİCEK KURUMSAL KİMLİKLEEER</span></div>
+  </div>
+  <div class="slide">
+    <div class="slide__img" style="background-image:url('https://cdn.cosmos.so/444502b9-4cb9-4f14-a068-f0213df08729?format=jpeg')"></div>
+    <div class="slide__text"><span class="slide__text-line">NE ZAMAN BİTİCEK KURUMSAL KİMLİKLEEER</span><span class="slide__text-line">NE ZAMAN BİTİCEK KURUMSAL KİMLİKLEEER</span></div>
+  </div>
+  <div class="slide">
+    <div class="slide__img" style="background-image:url('https://cdn.cosmos.so/ef511e17-a35b-42e6-9122-2754bbd2ad7e?format=jpeg')"></div>
+    <div class="slide__text"><span class="slide__text-line">NE ZAMAN BİTİCEK KURUMSAL KİMLİKLEEER</span><span class="slide__text-line">NE ZAMAN BİTİCEK KURUMSAL KİMLİKLEEER</span></div>
+  </div>
+  <div class="slide">
+    <div class="slide__img" style="background-image:url('https://cdn.cosmos.so/8b0252bd-cb64-45f4-aef8-672c7f628f76?format=jpeg')"></div>
+    <div class="slide__text"><span class="slide__text-line">NE ZAMAN BİTİCEK KURUMSAL KİMLİKLEEER</span><span class="slide__text-line">NE ZAMAN BİTİCEK KURUMSAL KİMLİKLEEER</span></div>
+  </div>
+</div>
+
+<div class="slide-counter">
+  <div class="counter-number">01</div>
+  <div class="counter-separator"></div>
+  <div class="counter-total">05</div>
+</div>
+
+<div class="cursor">
+  <div class="cursor-arrow prev">←</div>
+  <div class="cursor-arrow next">→</div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.14.1/gsap.min.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const slides = document.querySelectorAll(".slide");
+  const counterNumber = document.querySelector(".counter-number");
+  const cursor = document.querySelector(".cursor");
+  let currentIndex = 0;
+  let isAnimating = false;
+
+  function showSlide(index) {
+    slides.forEach((slide,i)=>{
+      slide.classList.toggle("active", i===index);
+    });
+    counterNumber.textContent = index<9?`0${index+1}`:index+1;
+  }
+
+  function navigate(direction){
+    if(isAnimating) return;
+    isAnimating = true;
+    currentIndex = (currentIndex + direction + slides.length) % slides.length;
+    showSlide(currentIndex);
+    setTimeout(()=>{ isAnimating=false },1200);
+  }
+
+  // Mouse
+  document.addEventListener("mousemove",(e)=>{
+    gsap.to(cursor,{left:e.clientX, top:e.clientY, duration:0.1});
+    cursor.classList.add("active");
+    if(e.clientX<window.innerWidth/2){ cursor.classList.remove("next"); cursor.classList.add("prev"); }
+    else { cursor.classList.remove("prev"); cursor.classList.add("next"); }
+    clearTimeout(window.cursorTimeout);
+    window.cursorTimeout=setTimeout(()=>{cursor.classList.remove("active")},2000);
+  });
+  document.addEventListener("mouseleave",()=>{cursor.classList.remove("active")});
+
+  // Mouse scroll
+  window.addEventListener("wheel",(e)=>{
+    if(e.deltaY>0) navigate(1); else navigate(-1);
+  });
+
+  // Touch swipe
+  let touchStartY=0;
+  document.addEventListener("touchstart",(e)=>{ touchStartY=e.changedTouches[0].screenY; });
+  document.addEventListener("touchmove",(e)=>{ e.preventDefault(); }, { passive:false }); // scroll'u durdur
+  document.addEventListener("touchend",(e)=>{
+    const touchEndY=e.changedTouches[0].screenY;
+    if(touchStartY>touchEndY+30) navigate(1);
+    else if(touchStartY<touchEndY-30) navigate(-1);
+  });
+
+  // Keyboard
+  document.addEventListener("keydown",(e)=>{
+    if(e.key==="ArrowDown"||e.key==="ArrowRight") navigate(1);
+    else if(e.key==="ArrowUp"||e.key==="ArrowLeft") navigate(-1);
+  });
+});
+</script>
+
+</body>
+</html>
