@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Site Başlığı -->
+ <title>Kelamix | Creative Web Design, Graphic Design, UI/UX, Responsive Web, Digital Projects</title>
+
+
+  <!-- Anahtar Kelimeler -->
+  <meta name="keywords"
+    content="Kelamix, web tasarım, grafik tasarım, UI/UX tasarım, kullanıcı deneyimi, responsive web, modern web sitesi, dijital ajans, freelance yazılım, HTML5, CSS3, JavaScript, React, NodeJS, Figma, Photoshop, yaratıcı projeler, dijital çözümler, teknoloji, interaktif tasarım, modern UI/UX, web geliştirme, dijital portfolyo, tasarım stüdyosu, Antalya, Kelamix projeleri, online hizmetler">
+
+  <!-- Site Açıklaması -->
+  <meta name="description"
+    content="Kelamix – Antalya merkezli yaratıcı dijital ajans. Grafik tasarım, web tasarım, UI/UX, responsive web ve modern projeler ile kullanıcı deneyimini ön planda tutan profesyonel çözümler sunuyoruz. HTML, CSS, JavaScript, React, NodeJS, Figma ve Photoshop ile interaktif ve modern web deneyimleri oluşturuyoruz.">
+
+  <!-- Yazar -->
+  <meta name="author" content="Kelamix">
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://kelamix.com/">
+
+  <!-- Open Graph / Facebook, LinkedIn vb. için -->
+  <meta property="og:title" content="Kelamix | Yaratıcı Web ve Grafik Tasarım">
+  <meta property="og:description"
+    content="Kelamix, modern web tasarım ve grafik tasarım projeleriyle dijital dünyada fark yaratıyor. Responsive web, UI/UX, HTML, CSS, JS, React, NodeJS, Figma ve Photoshop ile profesyonel çözümler sunuyoruz.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://kelamix.com/">
+  <meta property="og:image" content="https://kelamix.com/img/kelamix-logo.png">
+  <meta property="og:site_name" content="Kelamix">
+
+  <!-- Twitter Kartları -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Kelamix | Yaratıcı Web ve Grafik Tasarım">
+  <meta name="twitter:description"
+    content="Kelamix, modern web tasarım ve grafik tasarım projeleriyle dijital dünyada fark yaratıyor. Responsive web, UI/UX, HTML, CSS, JS, React, NodeJS, Figma ve Photoshop ile profesyonel çözümler sunuyoruz.">
+  <meta name="twitter:image" content="https://kelamix.com/img/kelamix-logo.png">
+  <meta name="twitter:site" content="@Kelamix">
+  <meta name="twitter:creator" content="@Kelamix">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Ysabeau+SC:wght@400;700;900&display=swap" rel="stylesheet">
+
+
+  <!-- Favicon -->
+  <link rel="icon" href="img/kalemix logo.jpg" type="image/png">
+
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Pacifico&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Oswald&family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Plus+Jakarta+Sans:wght@700;800&display=swap"
+    rel="stylesheet">
+
+  <!-- Your separated CSS -->
+  <link rel="stylesheet" href="stil.css">
+
+  <!-- GSAP & ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+</head>
+
+
+<body>
+
+  <!-- maus hareekt -->
+  <div class="cursor"></div>
+  <div class="cursor-follower"></div>
+
+
+
+
+  <!-- Navbar -->
+  <nav id="navbar">
+    <a href="#" class="logo"><img src="img/kalemix-removebg-preview.png" alt="Logo"></a>
+    <label class="hamburger">
+      <input type="checkbox" id="hamburgerInput">
+      <svg viewBox="0 0 32 32">
+        <path class="line line-top-bottom"
+          d="M27 10 13 10C10.8 10 9 8.2 9 6 9 3.5 10.8 2 13 2 15.2 2 17 3.8 17 6L17 26C17 28.2 18.8 30 21 30 23.2 30 25 28.2 25 26 25 23.8 23.2 22 21 22L7 22">
+        </path>
+        <path class="line" d="M7 16 27 16"></path>
+      </svg>
+    </label>
+  </nav>
+<div class="menu-overlay" id="menuOverlay">
+  <a href="#">Home</a>
+  <a href="#extra-content">Projects</a>
+  <a href="#about-us">About Us</a>
+  <a href="#bize ulaş">Contact</a>
+  <a href="#our services">Our Services</a>
+</div>
+
+<!-- Hero -->
+<div class="wrapper-hero">
+  <div class="intro">
+    <h1 class="shuffle-text">KELAMIX</h1>
+    <!-- Code Animation -->
+    <section>
+      <div style="display: flex; gap: 30px; justify-content: center;">
+
+        <!-- Button 1 -->
+        <a href="tasarımlarımız.html" target="_blank" rel="noopener noreferrer">
+          <button>
+            <div class="text">
+              <span>Projects</span>
+            </div>
+            <div class="clone">
+              <span>Explore</span>
+            </div>
+            <svg stroke-width="2" stroke="currentColor" viewBox="0 0 24 24" fill="none"
+              xmlns="http://www.w3.org/2000/svg" width="10px">
+              <path d="M14 5l7 7m0 0l-7 7m7-7H3" stroke-linejoin="round" stroke-linecap="round"></path>
+            </svg>
+          </button>
+        </a>
+
+        <!-- Button 2 -->
+        <a href="#bize ulaş">
+          <button>
+            <div class="text">
+              <span>Contact Us</span>
+            </div>
+            <div class="clone">
+              <span>Get in</span>
+              <span>Touch</span>
+            </div>
+            <svg stroke-width="3" stroke="currentColor" viewBox="0 0 24 24" fill="none"
+              xmlns="http://www.w3.org/2000/svg" width="20px">
+              <path d="M14 5l7 7m0 0l-7 7m7-7H3" stroke-linejoin="round" stroke-linecap="round"></path>
+            </svg>
+          </button>
+        </a>
+
+      </div>
+
+      <ul class="code">
+        <li tabindex="0" class="digit"><span>D</span></li>
+        <li tabindex="0" class="digit"><span>R</span></li>
+        <li tabindex="0" class="digit"><span>E</span></li>
+        <li tabindex="0" class="digit"><span>A</span></li>
+        <li tabindex="0" class="digit"><span>M</span></li>
+        <br>
+        <li tabindex="0" class="digit"><span>L</span></li>
+        <li tabindex="0" class="digit"><span>I</span></li>
+      </ul>
+    </section>
+  </div>
+  <div class="content">
+    <section class="section hero"></section>
+  </div>
+  <div class="image-container">
+    <img src="img/as.png" alt="image">
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Alt içerik -->
+<section id="extra-content" class="extra-content">
+  <!-- Floating Text -->
+  <div class="floating-text">
+    <h1>OUR DESIGNS | QUALITY PROJECTS | NEW IDEAS | OUR DESIGNS | QUALITY PROJECTS | NEW IDEAS</h1>
+  </div>
+
+<section class="hizmetler-section" id="our services">
+  <!-- Section Header -->
+  <header class="hizmetler-header">
+    <h1>Our Services</h1>
+    <p>Modern design and coding solutions</p>
+  </header>
+
+  <!-- Service Cards -->
+  <div class="hizmetler-cards">
+    <!-- Card 1 -->
+    <div class="hizmet-card" data-index="1">
+      <h3>
+        <span>Graphic Design</span>
+        <button class="toggle-btn" aria-expanded="false" aria-controls="panel-1">+</button>
+      </h3>
+      <div id="panel-1" class="card-panel">
+        <ul>
+          <li>Logo and Corporate Identity Design</li>
+          <li>Social Media Visuals</li>
+          <li>Brochure and Poster Designs</li>
+          <li>Banner and Advertisement Designs</li>
+          <li>Illustrations and Digital Drawings</li>
+          <li>Brand Style Guide</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="hizmet-card" data-index="2">
+      <h3>
+        <span>Web Design</span>
+        <button class="toggle-btn" aria-expanded="false" aria-controls="panel-2">+</button>
+      </h3>
+      <div id="panel-2" class="card-panel">
+        <ul>
+          <li>Responsive UI Designs</li>
+          <li>Modern Animated Interfaces</li>
+          <li>User-Centered Experience</li>
+          <li>Landing Page Designs</li>
+          <li>E-Commerce Web Designs</li>
+          <li>Wireframe and Prototype Work</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="hizmet-card" data-index="3">
+      <h3>
+        <span>Web Development</span>
+        <button class="toggle-btn" aria-expanded="false" aria-controls="panel-3">+</button>
+      </h3>
+      <div id="panel-3" class="card-panel">
+        <ul>
+          <li>HTML, CSS, JS</li>
+          <li>Bootstrap and Framework Support</li>
+          <li>Performance and SEO Optimization</li>
+          <li>API and Backend Integration</li>
+          <li>Form and Database Management</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="hizmet-card" data-index="4">
+      <h3>
+        <span>Mobile App Design</span>
+        <button class="toggle-btn" aria-expanded="false" aria-controls="panel-4">+</button>
+      </h3>
+      <div id="panel-4" class="card-panel">
+        <ul>
+          <li>iOS and Android UI/UX Designs</li>
+          <li>Prototype and Wireframe Work</li>
+          <li>Animated User Interfaces</li>
+          <li>Performance-Oriented Design</li>
+          <li>User Testing and Feedback Analysis</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Card 5 -->
+    <div class="hizmet-card" data-index="5">
+      <h3>
+        <span>SEO and Digital Marketing</span>
+        <button class="toggle-btn" aria-expanded="false" aria-controls="panel-5">+</button>
+      </h3>
+      <div id="panel-5" class="card-panel">
+        <ul>
+          <li>Keyword Analysis</li>
+          <li>SEO Optimization</li>
+          <li>Google Ads and Social Media Ads</li>
+          <li>Web Analytics and Reporting</li>
+          <li>Content Marketing Strategies</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Card 6 -->
+    <div class="hizmet-card" data-index="6">
+      <h3>
+        <span>Consulting and Training</span>
+        <button class="toggle-btn" aria-expanded="false" aria-controls="panel-6">+</button>
+      </h3>
+      <div id="panel-6" class="card-panel">
+        <ul>
+          <li>Web and Graphic Design Training</li>
+          <li>Project Management Consulting</li>
+          <li>Technology and Software Consulting</li>
+          <li>UX/UI Consulting</li>
+          <li>In-House Training and Workshops</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Ysabeau SC Header and paragraph -->
+<h1 class="h1">OUR DESIGNS</h1>
+<div class="card-container">
+  <!-- Card 1 -->
+  <div class="card" data-aos="fade-right" data-aos-duration="2000">
+    <div class="card-hover-text">
+      <p style="font-size: 2rem; color: rgb(250, 250, 250);"> </p>
+      <a href="tasarımlarımız.html" target="_blank" rel="noopener noreferrer">
+        <button>
+          <div class="text" style="color: rgb(255, 255, 255)">
+            <span>Very soon</span>
+            
+          </div>
+          <div class="clone" style="color: rgb(255, 255, 255)">
+            <span>Very soon</span>
+            
+          </div>
+          <svg style="color:rgb(255, 255, 255)" stroke-width="2" stroke="currentColor" viewBox="0 0 24 24"
+            fill="none" xmlns="http://www.w3.org/2000/svg" width="20px">
+            <path d="M14 5l7 7m0 0l-7 7m7-7H3" stroke-linejoin="round" stroke-linecap="round"></path>
+          </svg>
+        </button>
+      </a>
+    </div>
+    <img src="img/tasarım svg.svg" alt="">
+  </div>
+
+
+  <!-- Card 3 -->
+  <div class="card" data-aos="fade-left" data-aos-duration="3000">
+    <div class="card-hover-text">
+      <p style="font-size: 2rem; color: rgb(250, 250, 250);"> </p>
+      <a href="https://thmcodexlabs.com/" target="_blank">
+        <button>
+          <div class="text" style="color: rgb(255, 255, 255)">
+            <span>View</span>
+            <span>Project</span>
+          </div>
+          <div class="clone" style="color: rgb(255, 255, 255)">
+            <span>View</span>
+            <span>Project</span>
+          </div>
+          <svg style="color: rgb(255, 255, 255)" stroke-width="2" stroke="currentColor" viewBox="0 0 24 24"
+            fill="none" xmlns="http://www.w3.org/2000/svg" width="20px">
+            <path d="M14 5l7 7m0 0l-7 7m7-7H3" stroke-linejoin="round" stroke-linecap="round"></path>
+          </svg>
+        </button>
+      </a>
+    </div>
+    <img src="img/Instagram Video Streaming-cuate.svg" alt="">
+  </div>
+</div>
+</section>
+
+
+
+<div class="curved-loop-jacket">
+  <svg class="curved-loop-svg" viewBox="0 0 1440 120">
+    <defs>
+      <!-- Curve Path -->
+      <path id="curvePath" d="M-100,40 Q500,540 1540,40" fill="none" stroke="transparent" />
+
+      <!-- Animated Gradient -->
+      <linearGradient id="textGradient" gradientTransform="translate(0,0)">
+        <stop offset="0%" stop-color="#00ffe0" />
+        <stop offset="50%" stop-color="#ff00ff" />
+        <stop offset="100%" stop-color="#ffcc00" />
+        <!-- Gradient Flow -->
+        <animateTransform attributeName="gradientTransform" type="translate" from="-1 0" to="1 0" dur="6s"
+          repeatCount="indefinite" />
+      </linearGradient>
+    </defs>
+
+    <text font-weight="bold">
+      <textPath id="curvedText" href="#curvePath" startOffset="0">
+        Graphic Design ✦ Web Development ✦ Modern UI/UX ✦ Responsive Design ✦ Creative Projects ✦ Kelamix ✦ Graphic Design ✦ Web Development ✦ Modern UI/UX ✦ Responsive Design ✦ Creative Projects ✦ Kelamix ✦ Graphic Design ✦ Web Development ✦ Modern UI/UX ✦ Responsive Design ✦ Creative Projects ✦ Kelamix ✦
+      </textPath>
+    </text>
+  </svg>
+</div>
+
+<!-- About Us Content -->
+<section id="about-us" class="about-us">
+  <h1>About Us</h1>
+  <p>We are a design and development team dedicated to creating modern, impressive, and user-friendly digital experiences. Our goal is to make a difference by providing innovative solutions.</p>
+  <a href="#bize ulaş" style="text-decoration: none;">
+    <button>
+      <div class="text" style="color: rgb(255, 255, 255)">
+        <span>Let's</span>
+      </div>
+      <div class="clone" style="color: rgb(255, 255, 255)">
+        <span>Connect</span>
+      </div>
+      <svg style="color:rgb(255, 255, 255)" stroke-width="2" stroke="currentColor" viewBox="0 0 24 24" fill="none"
+        xmlns="http://www.w3.org/2000/svg" width="20px">
+        <path d="M14 5l7 7m0 0l-7 7m7-7H3" stroke-linejoin="round" stroke-linecap="round"></path>
+      </svg>
+    </button>
+  </a>
+
+  <!-- Values Cards -->
+  <div class="values">
+    <div class="value-card">
+      <img src="img/misyon.svg" alt="">
+      <h3>Our Mission</h3>
+      <p>To provide innovative solutions that empower businesses and users.</p>
+    </div>
+    <div class="value-card">
+      <img src="img/vizyon.svg" alt="">
+      <h3>Our Vision</h3>
+      <p>To be a leading digital studio that prioritizes creativity, quality, and impact.</p>
+    </div>
+    <div class="value-card">
+      <img src="img/iş.svg" alt="">
+      <h3>Our Values</h3>
+      <p>Innovation, collaboration, transparency, and excellence guide all our work.</p>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+  <!-- Timeline Section Start -->
+<section id="custom-timeline-section">
+  <h2 class="timeline-section-title">
+    <a href="#custom-timeline-end" class="scroll-down">
+      <span class="arrow"></span>
+    </a>
+  </h2>
+  <svg class="timeline-path" viewBox="0 0 80 1350" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"
+    aria-hidden="true" focusable="false">
+    <path class="bg-line" d="M40 0
+  C 10 150, 70 300, 40 450
+  C 10 600, 70 750, 40 900
+  C 10 1050, 70 1200, 40 1350" />
+    <path class="highlight-line" d="M40 0
+  C 10 150, 70 300, 40 450
+  C 10 600, 70 750, 40 900
+  C 10 1050, 70 1200, 40 1350" />
+  </svg>
+
+  <article class="left">
+    <h1> Introduction & Initial Contact</h1>
+  </article>
+
+  <article class="right">
+    <h1> Needs Analysis</h1>
+  </article>
+
+  <article class="left">
+    <h1> Solution & Proposal Presentation</h1>
+  </article>
+
+  <article class="right">
+    <h1> Quotation & Planning</h1>
+  </article>
+
+  <article class="left">
+    <h1> Project Implementation</h1>
+  </article>
+
+  <article class="right">
+    <h1> Delivery & Follow-Up</h1>
+  </article>
+  <div id="custom-timeline-end"></div>
+</section>
+
+<h1 class="HH1">
+  <span class="prog" data-aos="fade-down">PROG</span>
+  <span class="ramlar" data-aos="fade-up">RAMS</span>
+</h1>
+
+<div class="programs-wrapper" id="programsWrapper">
+  <div class="programs" id="programsTrack">
+    <div class="program"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"
+        alt="HTML5">
+      <div class="tooltip">HTML5</div>
+    </div>
+    <div class="program"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"
+        alt="CSS3">
+      <div class="tooltip">CSS3</div>
+    </div>
+    <div class="program"><img
+        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JS">
+      <div class="tooltip">JavaScript</div>
+    </div>
+    <div class="program"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
+        alt="React">
+      <div class="tooltip">React</div>
+    </div>
+    <div class="program"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"
+        alt="NodeJS">
+      <div class="tooltip">NodeJS</div>
+    </div>
+    <div class="program"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg"
+        alt="Figma">
+      <div class="tooltip">Figma</div>
+    </div>
+    <div class="program"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/photoshop/photoshop-plain.svg"
+        alt="Photoshop">
+      <div class="tooltip">Photoshop</div>
+    </div>
+  </div>
+</div>
+
+<canvas class="space3d" id="space3d"></canvas>
+<div class="progress"><span class="bar" id="globalBar"></span></div>
+
+<main>
+  <section class="stage">
+    <div class="wrap">
+      <!-- Kinetic Text -->
+      <div id="kinetic" class="kinetic" aria-live="polite"></div>
+
+      <!-- Services + Final, same center -->
+      <div class="layer">
+        <div id="carousel" class="carousel" aria-hidden="true"></div>
+
+        <div id="final" class="final" aria-hidden="true">
+          <h1 class="final-title">
+            <span class="lineA">&nbsp;</span>
+            <span class="lineB"></span>
+          </h1>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<section class="contact-section" id="bize ulaş">
+  <div class="container">
+    <div class="contact-left" data-aos="fade-right">
+
+      <h2>Contact Us</h2>
+      <p>We work freelance and are open to all projects.</p>
+      <div class="info">
+        <p> <i class="fab fa-whatsapp"></i> +90 507 882 35 61</p>
+        <p><i class="fa-solid fa-envelope"></i> tahabarutcu9@gmail.com</p>
+        <p><i class="fa-solid fa-map-marker-alt"></i> Turkey, Antalya</p>
+      </div>
+      <p class="slogan">“We make a difference with creative solutions!”</p>
+    </div>
+
+    <div class="contact-right" data-aos="fade-left">
+
+      <form id="contactForm" action="https://formspree.io/f/myznealp" method="POST">
+        <div class="form-row">
+          <div class="form-group">
+            <input type="text" name="firstname" id="firstname" placeholder=" " required>
+            <label for="firstname">First Name</label>
+          </div>
+          <div class="form-group">
+            <input type="text" name="lastname" id="lastname" placeholder=" " required>
+            <label for="lastname">Last Name</label>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <input type="tel" name="phone" id="phone" placeholder=" " required>
+            <label for="phone">Phone</label>
+          </div>
+          <div class="form-group">
+            <input type="email" name="email" id="email" placeholder=" " required>
+            <label for="email">Email</label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <textarea name="message" id="message" rows="5" placeholder=" " required></textarea>
+          <label for="message">Your Message</label>
+        </div>
+
+        <button type="submit">
+          <div class="text" style="color: rgb(255, 255, 255)">
+            <span>Send Your</span>
+          </div>
+          <div class="clone" style="color: rgb(255, 255, 255)">
+            <span>Feedback</span>
+          </div>
+          <svg style="color:rgb(255, 255, 255)" stroke-width="2" stroke="currentColor" viewBox="0 0 24 24" fill="none"
+            xmlns="http://www.w3.org/2000/svg" width="20px">
+            <path d="M14 5l7 7m0 0l-7 7m7-7H3" stroke-linejoin="round" stroke-linecap="round"></path>
+          </svg>
+        </button>
+      </form>
+
+      <!-- Message Area -->
+      <div id="formMessage"></div>
+
+    </div>
+  </div>
+</section>
+
+
+
+
+<footer>
+  <div class="footer-container">
+    <!-- Logo & Brand -->
+    <div class="footer-brand">
+      <img src="img/kalemix-removebg-preview.png" alt="Logo">
+      <h3>Kelamix</h3>
+      <p>Creative Digital Solutions</p>
+      <div class="social-icons">
+        <a href="https://www.instagram.com/kelamix.dijital?igsh=cXo1dG80dHhjZ2li" target="_blank"
+          class="social-icon"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.linkedin.com/in/taha-barutcu-075a6b328?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+          class="social-icon" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <a href="https://github.com/Thmcodexlabs" target="_blank" class="social-icon"><i
+            class="fab fa-github"></i></a>
+      </div>
+    </div>
+
+    <!-- Quick Links -->
+    <div class="footer-links">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#about-us">About Us</a></li>
+        <li><a href="#programsWrapper">Services</a></li>
+        <li><a href="#extra-content">Projects</a></li>
+        <li><a href="#bize ulaş">Contact</a></li>
+      </ul>
+    </div>
+
+    <!-- Accordion -->
+    <div class="accordion">
+      <div class="accordion-item">
+        <div class="accordion-header">Image Sources <span>▼</span></div>
+        <div class="accordion-content">
+          <a href="https://storyset.com/work">Work illustrations by Storyset</a>
+          <a href="https://storyset.com/work">Work illustrations by Storyset</a>
+          <a href="https://storyset.com/online">Online illustrations by Storyset</a>
+          <a href="https://storyset.com/people">People illustrations by Storyset</a>
+          <a href="https://storyset.com/worker">Worker illustrations by Storyset</a>
+          <a href="https://storyset.com/work">Work illustrations by Storyset</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Logo & Supporter -->
+  <div class="footer-brand">
+    <a href="https://thmcodexlabs.com/" target="_blank">
+      <img style="background-color: aliceblue; border-radius: 60%;" src="img/thm logo.png" alt="Kelamix Logo">
+    </a>
+    <h3>OUR SUPPORTER</h3>
+
+    <div class="social-icons">
+
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    © 2025 Kelamix
+    <!-- Back to Top Button (Only arrow, no background) -->
+    <button class="back-to-top"><i class="fas fa-arrow-up"></i>Back to Top</button>
+  </div>
+</footer>
+
+
+
+
+
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <!-- (geri kalan içerik aynen korundu, contact, cards, slider, svg blob, about vb.) -->
+  <!-- ... tüm HTML içeriğini orijinal haliyle buraya koydum (kısa tutmak için tam olarak kopyaladığını varsayıyorum) ... -->
+
+  <!-- ÖNEMLİ: AOS script'i önce çağır -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+  <!-- Bizim ayrılmış JS (script.js) -->
+  <script src="ajans.js"></script>
+</body>
+
+</html>
