@@ -1785,7 +1785,7 @@
 
   .contact-left,
   .contact-right {
-    width: 95%;
+    width: 75%;
   }
 
   .contact-left img {
@@ -1823,7 +1823,7 @@
 
   .contact-left,
   .contact-right {
-    width: 100%;
+    width: 80%;
     padding: 20px;
   }
 
@@ -2025,9 +2025,9 @@
       gap: 1.5rem;
     }
     .back-to-top {
-      right: 50%;
+      right: 10%;
       transform: translateX(50%);
-      bottom: 10px;
+      bottom: 20px;
     }
     .footer-brand img {
       width: 60px;
@@ -2189,7 +2189,7 @@ section {
 @media (max-width: 1024px) {
   .HH1 {
     text-align: left;
-    font-size: clamp(100px, 10vw, 100px);
+    font-size: clamp(80px, 5vw, 80px);
   }
 
   .HH1 span {
@@ -2231,6 +2231,7 @@ section {
     width: 120px;
   }
 }
+
 
 
 
@@ -2442,3 +2443,4 @@ section {
     font-size: 8rem;
   }
 }
+
