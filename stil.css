@@ -110,7 +110,7 @@ html, body {
     letter-spacing: 1px;
   }
   .floating-text {
-    top: -240px;
+    top: -340px;
     width: 280%;
   }
 }
@@ -123,7 +123,7 @@ html, body {
     -webkit-text-stroke: 0.08px #f9b657;
   }
   .floating-text {
-    top: -100px;
+    top: -250px;
     width: 300%;
   }
 }
@@ -250,47 +250,149 @@ html, body {
  }
 
 
- /* Hero */
- .wrapper-hero {
-   position: relative;
-   width: 100%;
-   z-index: 1;
-   margin-bottom: 20px;
- }
+.wrapper-hero {
+  position: relative;
+  width: 100%;
+  z-index: 1;
+  margin-bottom: 20px;
+}
 
- .intro {
-   position: absolute;
-   top: -200px;
-   left: 0;
-   width: 100%;
-   height: 100vh;
-   display: flex;
-   flex-direction: column;
-   justify-content: center;
-   align-items: center;
-   color: #ff9605;
-   z-index: 2;
-   text-align: center;
- }
+.intro {
+  position: absolute;
+  top: -200px;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #ff9605;
+  z-index: 2;
+  text-align: center;
+}
 
- .shuffle-text {
-   font-family: 'Press Start 2P', sans-serif;
-   font-size: 3rem;
-   color: #5e0000;
-   letter-spacing: 6px;
-   text-transform: uppercase;
+.shuffle-text {
+  font-family: 'Press Start 2P', sans-serif;
+  font-size: 3rem;
+  color: #5e0000;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+}
 
- }
+.normal-text {
+  font-family: Arial, sans-serif;
+  font-size: 2rem;
+  color: #ffffff;
+}
 
- .normal-text {
-   font-family: Arial, sans-serif;
-   font-size: 2rem;
-   color: #ffffff;
- }
+.intro p {
+  font-size: 1rem;
+}
 
- .intro p {
-   font-size: 1rem;
- }
+/* ============================== */
+/* 💻 MEDIA QUERIES (Responsive) */
+/* ============================== */
+
+/* 🖥️ 1440px ve üstü - Büyük ekranlar */
+@media (min-width: 1440px) {
+  .intro {
+    top: -240px;
+  }
+
+  .shuffle-text {
+    font-size: 1.4rem;
+    letter-spacing: 8px;
+  }
+
+  .normal-text {
+    font-size: 2.6rem;
+  }
+
+  .intro p {
+    font-size: 1.2rem;
+  }
+}
+
+/* 💻 1024px - 1439px (Laptop) */
+@media (max-width: 1439px) and (min-width: 1024px) {
+  .intro {
+    top: -200px;
+  }
+
+  .shuffle-text {
+    font-size: 1.2rem;
+  }
+
+  .normal-text {
+    font-size: 2.3rem;
+  }
+
+  .intro p {
+    font-size: 1.1rem;
+  }
+}
+
+/* 📱 768px - 1023px (Tablet yatay/dikey) */
+@media (max-width: 1023px) and (min-width: 768px) {
+  .intro {
+    top: -160px;
+  }
+
+  .shuffle-text {
+    font-size: 1rem;
+    letter-spacing: 4px;
+  }
+
+  .normal-text {
+    font-size: 2rem;
+  }
+
+  .intro p {
+    font-size: 0.95rem;
+  }
+}
+
+/* 📱 480px - 767px (Büyük telefonlar / küçük tablet) */
+@media (max-width: 767px) and (min-width: 480px) {
+  .intro {
+    top: -120px;
+  }
+
+  .shuffle-text {
+    font-size: 0.9rem;
+    letter-spacing: 3px;
+  }
+
+  .normal-text {
+    font-size: 1.5rem;
+  }
+
+  .intro p {
+    font-size: 0.9rem;
+  }
+}
+
+/* 📱 320px - 479px (Küçük telefonlar) */
+@media (max-width: 479px) {
+  .intro {
+    top: -100px;
+    padding: 0 10px;
+  }
+
+  .shuffle-text {
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+  }
+
+  .normal-text {
+    font-size: 1.2rem;
+  }
+
+  .intro p {
+    font-size: 0.8rem;
+  }
+}
 
 
 
@@ -2521,6 +2623,7 @@ section {
     font-size: 8rem;
   }
 }
+
 
 
 
