@@ -110,7 +110,7 @@ html, body {
     letter-spacing: 1px;
   }
   .floating-text {
-    top: -365px;
+    top: -305px;
     width: 280%;
   }
 }
@@ -2346,7 +2346,7 @@ section {
 @media (max-width: 480px) {
   .ramlar {
     margin-top: -20px;      /* Daha az negatif boşluk */
-    font-size: 1.2rem;      /* Yazı biraz küçülsün */
+    font-size: 7.2rem;      /* Yazı biraz küçülsün */
   }
 }
 
@@ -2667,6 +2667,7 @@ section {
     font-size: 8rem;
   }
 }
+
 
 
 
