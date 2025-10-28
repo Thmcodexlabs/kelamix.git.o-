@@ -26,30 +26,99 @@
  }
 
 
- /* kayan yazı  */
- .floating-text {
-   font-family: 'Press Start 2P', monospace;
-   position: absolute;
-   top: -240px;
-   /* ihtiyaca göre ayarlayabilirsin */
-   width: 200%;
-   /* yazının kayması için genişletiyoruz */
-   pointer-events: none;
-   z-index: 5;
-   /* alt içerikten üstte */
-   white-space: nowrap;
- }
+  /* kayan yazı  */
+/* Kayan Yazı - Temel Stil */
+.floating-text {
+  font-family: 'Press Start 2P', monospace;
+  position: absolute;
+  top: -240px; /* Büyük ekran için başlangıç */
+  width: 200%;
+  pointer-events: none;
+  z-index: 5;
+  white-space: nowrap;
+  text-align: center;
+}
 
- .floating-text h1 {
-   font-size: 5rem;
-   color: transparent;
-   /* içi boş */
-   -webkit-text-stroke: 0.1px #f9b657;
-   /* yazı konturu */
-   text-transform: uppercase;
-   letter-spacing: 2px;
- }
+.floating-text h1 {
+  font-size: 5rem;
+  color: transparent;
+  -webkit-text-stroke: 0.1px #f9b657;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  animation: moveText 20s linear infinite;
+}
 
+/* Basit kayan animasyon (örnek) */
+@keyframes moveText {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* =============================================== */
+/* 💡 MEDIA QUERIES */
+/* =============================================== */
+
+/* 🖥️ 1440px ve üstü - Büyük ekranlar */
+@media (min-width: 1440px) {
+  .floating-text h1 {
+    font-size: 6rem;
+    letter-spacing: 4px;
+  }
+  .floating-text {
+    top: -260px;
+  }
+}
+
+/* 💻 1024px - 1439px (Laptop ekranları) */
+@media (max-width: 1439px) and (min-width: 1024px) {
+  .floating-text h1 {
+    font-size: 4.5rem;
+  }
+  .floating-text {
+    top: -240px;
+  }
+}
+
+/* 📱 768px - 1023px (Tablet yatay / küçük laptop) */
+@media (max-width: 1023px) and (min-width: 768px) {
+  .floating-text h1 {
+    font-size: 3.5rem;
+    letter-spacing: 1.5px;
+  }
+  .floating-text {
+    top: -240px;
+    width: 250%;
+  }
+}
+
+/* 📱 480px - 767px (Tablet dikey / büyük telefonlar) */
+@media (max-width: 767px) and (min-width: 480px) {
+  .floating-text h1 {
+    font-size: 2.5rem;
+    letter-spacing: 1px;
+  }
+  .floating-text {
+    top: -240px;
+    width: 280%;
+  }
+}
+
+/* 📱 320px - 479px (Küçük telefonlar) */
+@media (max-width: 479px) {
+  .floating-text h1 {
+    font-size: 1.6rem;
+    letter-spacing: 0.5px;
+    -webkit-text-stroke: 0.08px #f9b657;
+  }
+  .floating-text {
+    top: -100px;
+    width: 300%;
+  }
+}
 
  .extra-content {
    position: relative;
@@ -2112,8 +2181,8 @@ section {
 }
 
 .prog {
-  background: linear-gradient(100deg, #63000060, #ff990014);
-  color: rgb(0, 0, 0);              /* İç yazıyı görünür yapmak için */
+  background: linear-gradient(100deg, #10000043, #ff99003d);
+  color: rgba(115, 60, 0, 0.26);              /* İç yazıyı görünür yapmak için */
   -webkit-text-stroke: 0px;  /* stroke kaldırıldı */
   padding: 0 10px;
   
@@ -2121,6 +2190,7 @@ section {
   display: flex;            /* Alt satıra geçsin */
   margin-bottom: 90px;       /* PROG ile RAMLAR arası boşluk */
 }
+
 
 .ramlar {
   display: flex;            /* Alt satıra geçsin */
@@ -2443,4 +2513,5 @@ section {
     font-size: 8rem;
   }
 }
+
 
