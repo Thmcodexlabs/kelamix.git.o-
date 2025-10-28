@@ -3,6 +3,14 @@
    padding: 0;
    box-sizing: border-box;
  }
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
+  -webkit-text-size-adjust: 100%;
+  touch-action: manipulation;
+}
 
  body {
    font-family: 'Press Start 2P', monospace;
@@ -2513,5 +2521,6 @@ section {
     font-size: 8rem;
   }
 }
+
 
 
