@@ -110,7 +110,7 @@ html, body {
     letter-spacing: 1px;
   }
   .floating-text {
-    top: -340px;
+    top: -355px;
     width: 280%;
   }
 }
@@ -495,7 +495,7 @@ html, body {
  button .clone>*,
  button .text>* {
    opacity: 1;
-   font-size: 1.3rem;
+   font-size: 1rem;
    transition: 0.2s;
    margin-left: 4px;
  }
@@ -636,8 +636,11 @@ html, body {
    }
 
    .wrapper-hero .code {
-     font-size: 2rem;
+     font-size: 1rem;
    }
+
+
+  
  }
 
  @media (max-width: 480px) {
@@ -649,7 +652,6 @@ html, body {
      font-size: 1.5rem;
    }
  }
-
 
 
 
@@ -2623,6 +2625,7 @@ section {
     font-size: 8rem;
   }
 }
+
 
 
 
