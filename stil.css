@@ -123,7 +123,7 @@ html, body {
     -webkit-text-stroke: 0.08px #f9b657;
   }
   .floating-text {
-    top: -250px;
+    top: -350px;
     width: 300%;
   }
 }
@@ -1771,22 +1771,46 @@ html, body {
    color: #ffd56b;
  }
 
- /* Sağ Alan Form */
- .contact-right {
+/* Sağ Alan Form */
+.contact-right {
   font-family: "Ysabeau SC", sans-serif;
-  font-optical-sizing: auto; /* Optik boyutlandırmayı otomatik uygula */
+  font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
-   flex: 2;
-   min-width: 1000px;
-   padding: 40px;
-   background: rgba(154, 154, 154, 0.186);
-   backdrop-filter: blur(10px);
-   border-radius: 20px;
-   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-   position: relative;
-   
- }
+  flex: 2;
+  width: 100%;
+  max-width: 1000px; /* geniş ekranlarda fazla büyümesin */
+  padding: 40px;
+  background: rgba(154, 154, 154, 0.186);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  position: relative;
+  margin: 0 auto; /* ortala */
+}
+
+/* 📱 Mobil uyum (tablet ve altı) */
+@media (max-width: 768px) {
+  .contact-right {
+    padding: 20px;
+    max-width: 100%;
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: none;
+    backdrop-filter: none;
+  }
+
+  .contact-section .container {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .contact-left {
+    text-align: center;
+  }
+}
+
 
  /* Circuit Background */
 
@@ -2625,6 +2649,7 @@ section {
     font-size: 8rem;
   }
 }
+
 
 
 
