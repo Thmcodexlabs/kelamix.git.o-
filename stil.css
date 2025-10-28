@@ -2329,9 +2329,27 @@ section {
 
 
 .ramlar {
-  display: flex;            /* Alt satıra geçsin */
-  margin-top: -100px;          /* RAMLAR’ın üst boşluğu */
+  display: flex;
+  margin-top: -100px; /* Masaüstü görünüm için */
 }
+
+/* 📱 Mobil uyum */
+@media (max-width: 768px) {
+  .ramlar {
+    flex-direction: column; /* Dikey hizalama */
+    align-items: center;    /* Ortala */
+    margin-top: -40px;      /* Üst boşluğu azalt */
+  }
+}
+
+/* 📱 Küçük telefonlar için (örnek: 480px ve altı) */
+@media (max-width: 480px) {
+  .ramlar {
+    margin-top: -20px;      /* Daha az negatif boşluk */
+    font-size: 1.2rem;      /* Yazı biraz küçülsün */
+  }
+}
+
 
 
 
@@ -2649,6 +2667,7 @@ section {
     font-size: 8rem;
   }
 }
+
 
 
 
