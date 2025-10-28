@@ -110,7 +110,7 @@ html, body {
     letter-spacing: 1px;
   }
   .floating-text {
-    top: -440px;
+    top: -240px;
     width: 280%;
   }
 }
@@ -2521,6 +2521,7 @@ section {
     font-size: 8rem;
   }
 }
+
 
 
 
